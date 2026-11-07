@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "id": "theflai1k",
+  "version": "${version}",
+  "name": "TheFlai1k",
+  "description": "TheFlai1k client: HUD, tools, minimap, waypoints, gallery and more.",
+  "authors": ["TheFlai1k"],
+  "environment": "client",
+  "entrypoints": { "client": ["com.theflai1k.TheFlai1k"] },
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~1.21.8",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
