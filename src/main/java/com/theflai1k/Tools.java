@@ -411,37 +411,38 @@ public final class Tools {
         var w = mc.world;
         int style = m.s("Style (0-4)").i();
         double r = m.s("Radius").value;
+        var pm = mc.particleManager;
         double t = w.getTime() * 0.25;
         double x = p.getX(), y = p.getY(), z = p.getZ();
         switch (style) {
             case 0:
                 for (int i = 0; i < 2; i++) {
                     double a = t + i * Math.PI;
-                    w.addParticle(ParticleTypes.END_ROD, x + Math.cos(a) * r, y + 0.15, z + Math.sin(a) * r, 0, 0, 0);
+                    pm.addParticle(ParticleTypes.END_ROD, x + Math.cos(a) * r, y + 0.15, z + Math.sin(a) * r, 0, 0, 0);
                 }
                 break;
             case 1: {
                 double a = t, hy = (w.getTime() % 40) / 40.0 * 1.9;
-                w.addParticle(ParticleTypes.SOUL_FIRE_FLAME, x + Math.cos(a) * r, y + hy, z + Math.sin(a) * r, 0, 0, 0);
-                w.addParticle(ParticleTypes.SOUL_FIRE_FLAME, x - Math.cos(a) * r, y + 1.9 - hy, z - Math.sin(a) * r, 0, 0, 0);
+                pm.addParticle(ParticleTypes.SOUL_FIRE_FLAME, x + Math.cos(a) * r, y + hy, z + Math.sin(a) * r, 0, 0, 0);
+                pm.addParticle(ParticleTypes.SOUL_FIRE_FLAME, x - Math.cos(a) * r, y + 1.9 - hy, z - Math.sin(a) * r, 0, 0, 0);
                 break;
             }
             case 2:
                 for (int i = 0; i < 3; i++) {
                     double a = t * 1.5 + i * Math.PI * 2 / 3;
-                    w.addParticle(ParticleTypes.ENCHANT, x + Math.cos(a) * r, y + 1.0 + Math.sin(t + i) * 0.5, z + Math.sin(a) * r, 0, 0, 0);
+                    pm.addParticle(ParticleTypes.ENCHANT, x + Math.cos(a) * r, y + 1.0 + Math.sin(t + i) * 0.5, z + Math.sin(a) * r, 0, 0, 0);
                 }
                 break;
             case 3:
                 if (w.getTime() % 8 == 0) {
                     double a = Math.random() * Math.PI * 2;
-                    w.addParticle(ParticleTypes.HEART, x + Math.cos(a) * r, y + 0.5 + Math.random() * 1.5, z + Math.sin(a) * r, 0, 0, 0);
+                    pm.addParticle(ParticleTypes.HEART, x + Math.cos(a) * r, y + 0.5 + Math.random() * 1.5, z + Math.sin(a) * r, 0, 0, 0);
                 }
                 break;
             default:
                 for (int i = 0; i < 2; i++) {
                     double a = t * 2 + i * Math.PI;
-                    w.addParticle(ParticleTypes.FLAME, x + Math.cos(a) * r, y + 0.1, z + Math.sin(a) * r, 0, 0.01, 0);
+                    pm.addParticle(ParticleTypes.FLAME, x + Math.cos(a) * r, y + 0.1, z + Math.sin(a) * r, 0, 0.01, 0);
                 }
         }
     }
